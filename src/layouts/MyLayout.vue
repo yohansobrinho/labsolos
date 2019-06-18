@@ -27,7 +27,7 @@
     >
       <q-list>
         <q-item-label header>Navegação Principal</q-item-label>
-        <q-item clickable tag="a" href="/clientes">
+        <q-item clickable to="/clientes">
           <q-item-section avatar>
             <q-icon name="add" />
           </q-item-section>
@@ -36,7 +36,7 @@
             <!-- <q-item-label caption>v1.quasar-framework.org</q-item-label> -->
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" href="">
+        <q-item clickable to="/drt">
           <q-item-section avatar>
             <q-icon name="code" />
           </q-item-section>
