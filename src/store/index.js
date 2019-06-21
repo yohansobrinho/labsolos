@@ -28,11 +28,14 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import Auth from './auth'
+import Cliente from './cliente'
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    Auth
+    Auth,
+    Cliente
   }
 })
 

@@ -1,17 +1,18 @@
 // import Vue from 'vue'
-import { HEROKUclientOpen } from 'boot/axios'
+import { HEROKUclient } from 'boot/axios'
 
-const autenticacao = ({ commit }, obj) => {
+const getCliente = ({ commit }) => {
   // commit('Utils/SHOW_LOAD', null, { root: true })
   return new Promise((resolve, reject) => {
     // Vue.http.post(`/recarga/operadoras/`, {
     // obj = rootState.Autenticacao.token
-    HEROKUclientOpen.post(`/login`, obj)
+    HEROKUclient.get(`/cadClientes`)
     // {token: rootState.Autenticacao.token})
       .then((suc) => {
-        commit('SET_TOKEN', suc.data)
+        commit('GUARDAR_LISTA_CLIENTES', suc.data)
+        // commit('SET_TOKEN', suc.data)
         // commit('Utils/HIDE_LOAD', null, { root: true })
-        console.log('autenticação heroku ', suc.data)
+        console.log('getCliente suc ', suc.data)
         resolve(suc.data)
       })
       .catch((err) => {
@@ -22,5 +23,5 @@ const autenticacao = ({ commit }, obj) => {
 }
 
 export {
-  autenticacao
+  getCliente
 }
