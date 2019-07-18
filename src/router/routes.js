@@ -10,7 +10,8 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
-      { path: '/clientes', name: 'clientes', component: () => import('pages/Cliente.vue') }
+      { path: '/clientes', name: 'clientes', component: () => import('pages/Cliente.vue') },
+      { path: '/cadastro', name: 'cadastro', component: () => import('pages/Cadastro.vue') }
     ],
     meta: { requiresAuth: true }
   }

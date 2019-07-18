@@ -4,9 +4,17 @@
         :data="clientes"
         :columns="colunas"
         row-key="name"
+        :filter="filter"
         :visible-columns="visibleColumns"
       >
-        <template v-slot:top="props">
+      <template v-slot:top-left>
+        <q-input borderless dense debounce="300" v-model="filter" placeholder="Pesquisar">
+          <template v-slot:append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
+      </template>
+        <template v-slot:top-right="props">
 
           <q-space />
 
@@ -16,7 +24,7 @@
             borderless
             dense
             options-dense
-            :display-value="$q.lang.table.colunasVisiveis"
+            :display-value="$q.lang.table.columns"
             emit-value
             map-options
             :options="colunasVisiveis"
@@ -30,7 +38,7 @@
             @click="props.toggleFullscreen"
             class="q-ml-md"
           />
-          <q-btn flat dense label="Novo cliente" color="primary" icon="add" size="1rem" @click="clickCadastrarFunction" />
+          <q-btn flat dense label="Novo cliente" color="primary" icon="add" size="1rem" @click="cadCliente" />
         </template>
 
       </q-table>
@@ -44,6 +52,7 @@ export default {
   name: 'Cliente',
   data () {
     return {
+      filter: '',
       visibleColumns: this.colunasVisiveis,
       data: this.clientes,
       columns: this.colunas
@@ -56,10 +65,33 @@ export default {
     this.getCliente()
   },
   methods: {
-    ...mapActions('Cliente', ['getCliente'])
+    ...mapActions('Cliente', ['getCliente']),
+    cadCliente () {
+      this.$router.push({ name: 'cadastro' })
+    }
   }
 }
 </script>
 
 <style>
+table tbody tr {
+    cursor: pointer
+}
+
+table tbody tr:nth-child(2n) {
+    background-color: rgb(231, 231, 231);
+}
+
+table tbody tr:nth-child(2n):hover {
+    background-color: rgb(196, 196, 196);
+}
+
+table tbody tr:nth-child(2n+1):hover {
+    background-color: rgb(196, 196, 196);
+}
+
+/* table tbody tr:nth-child(2n+1) {
+  background-color: blue;
+} */
+
 </style>

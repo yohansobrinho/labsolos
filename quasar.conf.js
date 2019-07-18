@@ -6,6 +6,7 @@ module.exports = function (ctx) {
     // --> boot files are part of "main.js"
     boot: [
       'axios',
+      'vuelidate',
       'auth-router'
     ],
 
@@ -24,7 +25,7 @@ module.exports = function (ctx) {
 
     framework: {
       // all: true, // --- includes everything; for dev only!
-
+      lang: 'pt-br',
       components: [
         'QLayout',
         'QHeader',

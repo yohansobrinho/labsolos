@@ -101,7 +101,7 @@ export default {
     // },
     login () {
       // this.$router.push('/')
-      this.autenticacao(this.form)
+      // this.autenticacao(this.form)
         .then(() => {
           this.$router.push('/')
         })
